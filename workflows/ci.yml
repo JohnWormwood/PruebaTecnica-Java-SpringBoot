@@ -1,0 +1,32 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches:
+      - main  # Se ejecuta cuando haces un push a la rama 'main'
+  pull_request:
+    branches:
+      - main  # También se ejecuta cuando haces un PR hacia 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Define el entorno donde se ejecutará el job
+
+    steps:
+      # Paso 1: Obtén el código
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Paso 2: Configura Java
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      # Paso 3: Instala dependencias y ejecuta los tests con Maven
+      - name: Build with Maven
+        run: mvn clean install
+
+      # Paso 4: Ejecuta los tests
+      - name: Run tests
+        run: mvn test
