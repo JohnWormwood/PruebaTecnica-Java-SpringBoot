@@ -99,7 +99,7 @@ http://localhost:8080/v3/api-docs
 
 ## 🛡 CI / Badges
 
-![Build Status](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/blob/master/workflows/ci.yml/badge.svg)  
+![Build Status](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/blob/master/.github/workflows/maven.yml/badge.svg)  
 
 ## 📜 Licencia
 
