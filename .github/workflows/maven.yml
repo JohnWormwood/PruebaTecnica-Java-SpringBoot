@@ -2,13 +2,15 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [main]
+    branches:
+      - master
     paths:
       - 'src/**'
       - 'pom.xml'
       - '.github/workflows/**'
   pull_request:
-    branches: [main]
+    branches:
+      - master
     paths:
       - 'src/**'
       - 'pom.xml'
