@@ -80,13 +80,11 @@ Payload ejemplo (POST/PUT):
 
 Swagger UI disponible en:  
 ```
-http://localhost:8080/swagger-ui.html
-
+  http://localhost:8080/swagger-ui.html
 ```  
 OpenAPI JSON en:  
 ```
-http://localhost:8080/v3/api-docs
-
+  http://localhost:8080/v3/api-docs
 ```
 
 ## ✅ Pruebas
