@@ -1,12 +1,6 @@
 name: Java CI with Maven
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
   build:
@@ -22,7 +16,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin' # Opcional, pero es el más usado
 
-      - name: Cache Maven packages
+      - name: Java CI with Maven
         uses: actions/cache@v4
         with:
           path: ~/.m2/repository
