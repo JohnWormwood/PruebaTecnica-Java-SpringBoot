@@ -2,8 +2,14 @@ package com.prueba.tecnica.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.annotation.processing.Generated;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "tareas")
 public class Tarea {
@@ -19,28 +25,4 @@ public class Tarea {
 
     private boolean completada = false;
 
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public boolean isCompletada() {
-        return completada;
-    }
-
-    public void setCompletada(boolean completada) {
-        this.completada = completada;
-    }
 }
