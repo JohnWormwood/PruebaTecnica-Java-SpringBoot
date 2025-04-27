@@ -1,9 +1,8 @@
 # ToDo API – Java + Spring Boot
 
-Microservicio REST para gestionar **Tareas (To-Do)**, construido con Spring Boot. Ideal para tu portafolio y pruebas técnicas de selección.  
+Prueba técnica de microservicio REST en Spring Boot para la gestión de **Tareas (To-Do)**.
 
 ## 📋 Tabla de Contenidos
-
 - [Descripción](#descripción)  
 - [Características](#características)  
 - [Tecnologías](#tecnologías)  
@@ -13,22 +12,23 @@ Microservicio REST para gestionar **Tareas (To-Do)**, construido con Spring Boot
 - [Documentación API](#documentación-api)  
 - [Pruebas](#pruebas)  
 - [CI / Badges](#ci--badges)  
-- [Licencia](#licencia)  
+- [Licencia](#licencia)
 - [Autor / Contacto](#autor--contacto)  
 
-## 📖 Descripción
+## Descripción
 
 Esta API permite realizar un CRUD completo sobre una entidad **Tarea**, con validación, persistencia en H2 embebida y documentación automática Swagger/OpenAPI. Diseñada siguiendo buenas prácticas para una prueba técnica de Java/Spring Boot.  
 
-## 🚀 Características
+## Características
 
 - CRUD de Tareas: crear, leer, actualizar, eliminar.  
 - Validación de campos (`@NotBlank`, `@Valid`).  
 - Base de datos H2 en memoria para desarrollo rápido.  
 - Pruebas unitarias (JUnit 5 + Mockito) y de integración (SpringBootTest + MockMvc).  
-- Documentación automática con Swagger UI.  
+- Documentación automática con Swagger UI.
+- Integración continua (CI) con GitHub Actions.
 
-## 🛠 Tecnologías
+## Tecnologías
 
 - Java 17  
 - Spring Boot 3.x  
@@ -38,13 +38,13 @@ Esta API permite realizar un CRUD completo sobre una entidad **Tarea**, con vali
 - Springdoc OpenAPI (Swagger UI)  
 - Maven  
 
-## ⚙️ Requisitos Previos
+## Requisitos Previos
 
 - JDK 17+ instalado.  
 - Maven 3.x.  
 - Git configurado (user.name, user.email).  
 
-## 💾 Instalación y Arranque
+## Instalación y Arranque
 
 1. Clona el repositorio:  
    ```bash
@@ -57,7 +57,7 @@ Esta API permite realizar un CRUD completo sobre una entidad **Tarea**, con vali
    ```  
 3. Accede a la API en `http://localhost:8080/api/tareas`.  
 
-## 🔌 Uso / Endpoints
+## Uso / Endpoints
 
 | Método | Ruta                 | Descripción             |
 |--------|----------------------|-------------------------|
@@ -76,7 +76,7 @@ Payload ejemplo (POST/PUT):
 }
 ```
 
-## 📑 Documentación API
+## Documentación API
 
 Swagger UI disponible en:  
 ```
@@ -87,7 +87,7 @@ OpenAPI JSON en:
   http://localhost:8080/v3/api-docs
 ```
 
-## ✅ Pruebas
+## Pruebas
 
 - Ejecutar tests unitarios e integración:  
   ```bash
@@ -95,15 +95,15 @@ OpenAPI JSON en:
   ```
 - Reportes generados en `target/surefire-reports`.  
 
-## 🛡 CI / Badges
+## CI / Badges
 
 [![Java CI with Maven](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/actions/workflows/maven.yml/badge.svg)](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/actions/workflows/maven.yml) 
 
-## 📜 Licencia
+## Licencia
 
 Este proyecto está bajo la [MIT License](LICENSE).  
 
-## ✉️ Autor / Contacto
+## Autor / Contacto
 
 **Juan Ajenjo**  
 - GitHub: https://github.com/JohnWormwood 
