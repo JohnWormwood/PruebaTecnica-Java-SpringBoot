@@ -97,7 +97,7 @@ OpenAPI JSON en:
 
 ## 🛡 CI / Badges
 
-![Build Status](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/blob/master/.github/workflows/maven.yml/badge.svg)  
+[![Java CI with Maven](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/actions/workflows/maven.yml/badge.svg)](https://github.com/JohnWormwood/PruebaTecnica-Java-SpringBoot/actions/workflows/maven.yml) 
 
 ## 📜 Licencia
 
