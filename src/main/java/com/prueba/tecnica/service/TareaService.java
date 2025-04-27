@@ -1,6 +1,6 @@
 package com.prueba.tecnica.service;
 
-import com.prueba.tecnica.model.Tarea;
+import com.prueba.tecnica.models.Tarea;
 import com.prueba.tecnica.repository.TareaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

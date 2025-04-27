@@ -1,6 +1,6 @@
 package com.prueba.tecnica.controllers;
 
-import com.prueba.tecnica.model.Tarea;
+import com.prueba.tecnica.models.Tarea;
 import com.prueba.tecnica.service.TareaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
