@@ -1,9 +1,9 @@
 package com.prueba.tecnica;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prueba.tecnica.controllers.TareaController;
-import com.prueba.tecnica.models.Tarea;
-import com.prueba.tecnica.service.TareaService;
+import com.prueba.tecnica.controllers.TaskController;
+import com.prueba.tecnica.models.Task;
+import com.prueba.tecnica.services.TaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,20 +14,19 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(TareaController.class)
-class TareaControllerTest {
+@WebMvcTest(TaskController.class)
+class TaskControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private TareaService service;
+    private TaskService service;
 
     private ObjectMapper om = new ObjectMapper();
 
@@ -38,13 +37,13 @@ class TareaControllerTest {
 
     @Test
     void post_creaTarea() throws Exception {
-        Tarea input = new Tarea();
+        Task input = new Task();
         input.setTitulo("hola");
-        Tarea saved = new Tarea();
+        Task saved = new Task();
         saved.setId(1L);
         saved.setTitulo("hola");
 
-        Mockito.when(service.guardarTarea(any(Tarea.class))).thenReturn(saved);
+        Mockito.when(service.guardarTarea(any(Task.class))).thenReturn(saved);
 
         mvc.perform(post("/api/tareas")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -56,8 +55,8 @@ class TareaControllerTest {
 
     @Test
     void get_listaTareas() throws Exception {
-        Tarea t1 = new Tarea(); t1.setId(1L); t1.setTitulo("A");
-        Tarea t2 = new Tarea(); t2.setId(2L); t2.setTitulo("B");
+        Task t1 = new Task(); t1.setId(1L); t1.setTitulo("A");
+        Task t2 = new Task(); t2.setId(2L); t2.setTitulo("B");
         Mockito.when(service.listarTareas()).thenReturn(List.of(t1, t2));
 
         mvc.perform(get("/api/tareas"))

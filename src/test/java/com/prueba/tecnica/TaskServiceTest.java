@@ -1,8 +1,8 @@
 package com.prueba.tecnica;
 
-import com.prueba.tecnica.models.Tarea;
-import com.prueba.tecnica.repository.TareaRepository;
-import com.prueba.tecnica.service.TareaService;
+import com.prueba.tecnica.models.Task;
+import com.prueba.tecnica.repository.TaskRepository;
+import com.prueba.tecnica.services.TaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,33 +14,33 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-// 1. Configuramos el test de TareaService
-class TareaServiceTest {
+// 1. Configuramos el test de TaskService
+class TaskServiceTest {
 
-    private TareaRepository repo;
-    private TareaService service;
+    private TaskRepository repo;
+    private TaskService service;
 
     @BeforeEach
     void setUp() {
-        repo = Mockito.mock(TareaRepository.class);
-        service = new TareaService(repo);
+        repo = Mockito.mock(TaskRepository.class);
+        service = new TaskService(repo);
     }
 
     @Test
     void crearTarea_deberiaDevolverTareaConId() {
         // dado
-        Tarea input = new Tarea();
+        Task input = new Task();
         input.setTitulo("Test");
         input.setDescripcion("desc");
         // simulamos que JPA asigna id=42
-        Tarea saved = new Tarea();
+        Task saved = new Task();
         saved.setId(42L);
         saved.setTitulo(input.getTitulo());
         saved.setDescripcion(input.getDescripcion());
-        when(repo.save(any(Tarea.class))).thenReturn(saved);
+        when(repo.save(any(Task.class))).thenReturn(saved);
 
         // cuando
-        Tarea result = service.guardarTarea(input);
+        Task result = service.guardarTarea(input);
 
         // entonces
         assertNotNull(result.getId());
@@ -52,10 +52,10 @@ class TareaServiceTest {
     @Test
     void listarTareas_deberiaLlamarFindAll() {
         // dado
-        when(repo.findAll()).thenReturn(List.of(new Tarea(), new Tarea()));
+        when(repo.findAll()).thenReturn(List.of(new Task(), new Task()));
 
         // cuando
-        List<Tarea> list = service.listarTareas();
+        List<Task> list = service.listarTareas();
 
         // entonces
         assertEquals(2, list.size());
@@ -65,12 +65,12 @@ class TareaServiceTest {
     @Test
     void obtenerPorId_cuandoExiste() {
         // dado
-        Tarea t = new Tarea();
+        Task t = new Task();
         t.setId(5L);
         when(repo.findById(5L)).thenReturn(Optional.of(t));
 
         // cuando
-        Optional<Tarea> opt = service.obtenerTareaPorId(5L);
+        Optional<Task> opt = service.obtenerTareaPorId(5L);
 
         // entonces
         assertTrue(opt.isPresent());
@@ -81,7 +81,7 @@ class TareaServiceTest {
     void obtenerPorId_cuandoNoExiste() {
         when(repo.findById(99L)).thenReturn(Optional.empty());
 
-        Optional<Tarea> opt = service.obtenerTareaPorId(99L);
+        Optional<Task> opt = service.obtenerTareaPorId(99L);
 
         assertTrue(opt.isEmpty());
     }

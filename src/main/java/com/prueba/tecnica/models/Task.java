@@ -4,13 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
-import javax.annotation.processing.Generated;
 
 @Setter
 @Getter
 @Entity
-@Table(name = "tareas")
-public class Tarea {
+@Table(name = "task")
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
