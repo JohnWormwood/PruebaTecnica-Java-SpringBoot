@@ -10,23 +10,22 @@ import java.util.Optional;
 @Service
 public class TaskService {
 
-    private TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
     public TaskService(TaskRepository repo) { this.taskRepository = repo; }
 
-
-    public List<Task> listarTareas() {
+    public List<Task> listTask() {
         return taskRepository.findAll();
     }
 
-    public Optional<Task> obtenerTareaPorId(Long id) {
+    public Optional<Task> getTaskById(Long id) {
         return taskRepository.findById(id);
     }
 
-    public Task guardarTarea(Task task) {
+    public Task saveTask(Task task) {
         return taskRepository.save(task);
     }
 
-    public void eliminarTarea(Long id) {
+    public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
 }

@@ -17,39 +17,39 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping
-    public List<Task> listarTareas() {
-        return taskService.listarTareas();
+    public List<Task> listTask() {
+        return taskService.listTask();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Task> obtenerTarea(@PathVariable Long id) {
-        return taskService.obtenerTareaPorId(id)
+    public ResponseEntity<Task> getTask(@PathVariable Long id) {
+        return taskService.getTaskById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Task crearTarea(@Valid @RequestBody Task task) {
-        return taskService.guardarTarea(task);
+    public Task createTask(@Valid @RequestBody Task task) {
+        return taskService.saveTask(task);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> actualizarTarea(@PathVariable Long id, @Valid @RequestBody Task taskDetalles) {
-        return taskService.obtenerTareaPorId(id)
+    public ResponseEntity<Task> updateTask(@PathVariable Long id, @Valid @RequestBody Task taskDetalles) {
+        return taskService.getTaskById(id)
                 .map(tarea -> {
-                    tarea.setTitulo(taskDetalles.getTitulo());
-                    tarea.setDescripcion(taskDetalles.getDescripcion());
-                    tarea.setCompletada(taskDetalles.isCompletada());
-                    taskService.guardarTarea(tarea);
+                    tarea.setTitle(taskDetalles.getTitle());
+                    tarea.setDescription(taskDetalles.getDescription());
+                    tarea.setDone(taskDetalles.isDone());
+                    taskService.saveTask(tarea);
                     return ResponseEntity.ok(tarea);
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarTarea(@PathVariable Long id) {
-        if (taskService.obtenerTareaPorId(id).isPresent()) {
-            taskService.eliminarTarea(id);
+    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
+        if (taskService.getTaskById(id).isPresent()) {
+            taskService.deleteTask(id);
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();

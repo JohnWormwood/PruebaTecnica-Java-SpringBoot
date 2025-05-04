@@ -16,10 +16,10 @@ public class Task {
     private Long id;
 
     @NotBlank
-    private String titulo;
+    private String title;
 
-    private String descripcion;
+    private String description;
 
-    private boolean completada = false;
+    private boolean done = false;
 
 }
